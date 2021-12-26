@@ -6,7 +6,6 @@
 .def p = r18					;Pointer to data in table for 7-segment indicators 
 .def dataout = r19		;Register that outputs data from shift into IO space 
 .def tableaddr = r20	;Register that stores first byte point in table 
-.def temp = r21
 
 .eseg
 
