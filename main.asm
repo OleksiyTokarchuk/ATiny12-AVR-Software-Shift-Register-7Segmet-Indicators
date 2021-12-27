@@ -66,7 +66,7 @@ print:					;subroutine that prints data on 7-segmet indicators
 	lpm
 	mov data, R0
 	rcall send
-  sub tableaddr, p
+  	sub tableaddr, p
 	ret
 
 delay:
