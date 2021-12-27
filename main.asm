@@ -1,11 +1,11 @@
 ;Author: Oleksiy Tokarchuk 
 ;mail.oleksiy@gmail.com
 
-.def data = r16 			;Software shift register
-.def i = r17					;Register that stores cycle iterator
-.def p = r18					;Pointer to data in table for 7-segment indicators 
-.def dataout = r19		;Register that outputs data from shift into IO space 
-.def tableaddr = r20	;Register that stores first byte point in table 
+.def data      = r16 			        ;Software shift register
+.def i         = r17				;Register that stores cycle iterator
+.def p         = r18				;Pointer to data in table for 7-segment indicators 
+.def dataout   = r19		                ;Register that outputs data from shift into IO space 
+.def tableaddr = r20	                        ;Register that stores first byte point in table 
 
 .eseg
 
@@ -26,9 +26,9 @@ table:.db 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, \
 
 RESET:
 	ldi tableaddr, LOW(table * 2)  
-	sbi DDRB, 0x00	;data
-	sbi DDRB, 0x01	;clock
-	sbi DDRB, 0x02	;latch
+	sbi DDRB, 0x00			;data
+	sbi DDRB, 0x01			;clock
+	sbi DDRB, 0x02			;latch
 
 loop:
 	clr p
@@ -43,7 +43,7 @@ cycle:
 equal:
 	rjmp loop
 
-send: ;Software defined shift register
+send: 					;Software defined shift register
 	ldi i, 0
 	cbi PORTB, 2
 byte:
@@ -60,7 +60,7 @@ byte:
 	sbi PORTB, 2
 	ret
 
-print:	;subroutine that prints data on 7-segmet indicators 
+print:					;subroutine that prints data on 7-segmet indicators 
 	add tableaddr, p
 	mov ZL, tableaddr
 	lpm
@@ -81,4 +81,4 @@ Level1:
     dec  r21
     brne Level1
     nop
-	  ret
+    ret
