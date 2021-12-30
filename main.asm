@@ -8,9 +8,9 @@
 .def tableaddr = r20	                        ;Register that stores first byte point in table 
 
 .equ clock = 0					;clock pin
-.equ cs = 2					;chip selsct pin
-.equ mosi = 1					;sdout pin
-.equ mask = 0b00000010 				;mask where 1 corresponds mosi pin position in PORTx register
+.equ cs    = 2					;chip selsct pin
+.equ mosi  = 1					;sdout pin
+.equ mask  = 0b00000010 			;mask where 1 corresponds mosi pin position in PORTx register
 
 .eseg
 
