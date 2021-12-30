@@ -7,6 +7,11 @@
 .def dataout   = r19		                ;Register that outputs data from shift into IO space 
 .def tableaddr = r20	                        ;Register that stores first byte point in table 
 
+.equ clock = 0					;clock pin
+.equ cs = 2					;chip selsct pin
+.equ mosi = 1					;sdout pin
+.equ mask = 0b00000001 				;mask where 1 corresponds mosi pin position in PORTx register
+
 .eseg
 
 .cseg
@@ -45,19 +50,19 @@ equal:
 
 send: 					;Software defined shift register
 	ldi i, 0
-	cbi PORTB, 2
+	cbi PORTB, cs
 byte:
-	cbi PORTB, 1
+	cbi PORTB, clock
 	bst data, 7
-	bld dataout, 0
-	andi dataout, 0b0000001
+	bld dataout, mosi
+	andi dataout, mask
 	out PORTB, dataout
-	sbi PORTB, 1
+	sbi PORTB, clock
 	lsl data
 	inc i
 	cpi i, 8
 	brne byte
-	sbi PORTB, 2
+	sbi PORTB, cs
 	ret
 
 print:					;subroutine that prints data on 7-segmet indicators 
