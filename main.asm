@@ -48,7 +48,7 @@ equal:
 	rjmp loop
 
 send: 					;Software defined shift register
-	ldi i, 0
+	clr i
 	cbi PORTB, cs
 byte:
 	cbi PORTB, clock
