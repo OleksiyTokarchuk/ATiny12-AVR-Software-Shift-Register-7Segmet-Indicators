@@ -31,9 +31,9 @@ table:                 .db 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,
 
 RESET:
 	ldi tableaddr, LOW(table * 2)  
-	sbi DDRB, 0x00			;data
-	sbi DDRB, 0x01			;clock
-	sbi DDRB, 0x02			;latch
+	sbi DDRB, mosi			;data
+	sbi DDRB, clock			;clock
+	sbi DDRB, cs			;latch
 
 loop:
 	clr p
