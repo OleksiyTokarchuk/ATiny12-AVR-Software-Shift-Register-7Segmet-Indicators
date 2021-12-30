@@ -37,7 +37,6 @@ RESET:
 
 loop:
 	clr p
-	ldi p, 0
 cycle:
 	rcall print
 	rcall delay
