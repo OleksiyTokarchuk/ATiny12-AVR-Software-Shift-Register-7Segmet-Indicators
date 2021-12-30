@@ -3,4 +3,4 @@
 
 Attention! Make sure to limit current to 7-segment displays with resistor in real hardware!!!
 
-<img src="https://github.com/OleksiyTokarchuk/ATiny12-AVR-Software-Shift-Register-7Segmet-Indicators/blob/main/schematic.PNG?raw=true" alt="Girl in a jacket" width="1000" height="500">
+<img src="https://github.com/OleksiyTokarchuk/ATiny12-AVR-Software-Shift-Register-7Segmet-Indicators/blob/main/schematic.png" width="1000" height="450">
